@@ -1,0 +1,82 @@
+<div class="container mainPageContainer" id="main" ng-init="intializeSureifyCokeStudioData();">
+    <div ng-if="!isFavoritesArea" class="row" style="min-height:500px;max-height:500px;flex-wrap: wrap;overflow-y: scroll;" pagination-scroll="loadMoreItems();">
+
+        <div class="col-sm-4" ng-repeat="musicData in sureifyCokeStudioData | filter:$root.song">
+
+            <div class="panel panel-default">
+                <div class="panel-thumbnail"><img src="{{musicData.cover_image}}" class="img-responsive"></div>
+                <div class="panel-body">
+                    <p class="lead">{{musicData.song}}
+                        <span ng-click="addAsFavorite(musicData,$index);" style="float: right">
+                            <img ng-if="musicData.isFavoriteSong" style="width:32px;" src="src/img/filled-heart.png">
+                            <img ng-if="!musicData.isFavoriteSong" style="width:32px;" src="src/img/heart.png">
+                        </span>
+                    </p>
+
+                    <p>{{musicData.artists}}</p>
+
+                </div>
+                <audio id="song-{{$index}}" class="audioLayerStyle" ontimeupdate="updateTime()" controls="controls">
+                    <source src="{{musicData.url}}" type="audio/mp3" />
+                </audio>
+            </div>
+
+
+        </div><!--/col-->
+
+        <div ng-if="isServerError">
+            <h3 style="margin-top: 75px;text-align: center;">{{errorMessage}}</h3>
+            <center>
+                <button ng-click="intializeSureifyCokeStudioData();" type="button" style="border-radius: 25px;margin-right: 47%;" class="btn btn-default navbar-right myFavorites">
+                    <span class="glyphicon glyphicon-refresh"></span> Retry
+                </button>
+            </center>
+        </div>
+
+        <div ng-if="isEmptyData">
+            <h3 style="margin-top: 75px;text-align: center;">Data is not available. We are working on your request.</h3>
+        </div>
+
+        <br>
+
+        <div class="clearfix"></div>
+
+    </div><!--/main row-->
+
+    <div ng-if="isFavoritesArea" class="row" style="min-height:400px;max-height:500px;flex-wrap: wrap;overflow-y: scroll;">
+
+        <div class="col-sm-4" ng-repeat="musicData in favoritesList track by $index">
+
+            <div class="panel panel-default">
+                <div class="panel-thumbnail"><img src="{{musicData.cover_image}}" class="img-responsive"></div>
+                <div class="panel-body">
+                    <p class="lead">{{musicData.song}}
+                        <span style="float: right">
+                            <img ng-if="musicData.isFavoriteSong" style="width:32px;" src="src/img/filled-heart.png">
+                        </span>
+                    </p>
+                    <p>{{musicData.artists}}</p>
+
+                    <p>
+
+                    </p>
+                </div>
+                <audio id="favoritesong-{{$index}}" class="audioLayerStyle" ontimeupdate="updateTime()" controls="controls">
+                    <source src="{{musicData.url}}" type="audio/mp3" />
+                </audio>
+            </div>
+
+
+        </div><!--/col-->
+
+        <br>
+
+        <div class="clearfix"></div>
+
+        <div ng-if="isEmptyFavoritesData">
+            <h3 style="margin-top: 75px;text-align: center;font-size: 48px;">No Favorites</h3>
+        </div>
+
+    </div><!--/main row-->
+
+</div><!--/main-->

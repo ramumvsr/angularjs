@@ -1,0 +1,22 @@
+{
+  "name": "sureify-cokestudio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a 127.0.0.1 -p 3000 -o"
+  },
+  "keywords": [
+    "sureify-cokestudio",
+    "sureify-musicplayer"
+  ],
+  "author": "Sandeep",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "http-server": "^0.9.0"
+  }
+}

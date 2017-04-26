@@ -1,0 +1,23 @@
+Technologies Used :
+===================
+
+Angularjs, Bootstrap, Html, CSS
+
+Functionalities :
+=================
+
+1. simple and rich UI with bootstrap
+2. user can search songs by name
+3. user can add songs to favorites
+4. user can see the list of favorite songs
+5. user can play and download the sings easily
+6. pagination to list of items
+7. displaying all the fields avaiable in API
+
+steps to run the app:
+=====================
+
+1. Install Node.js in local machine
+2. open command prompt and navigate to project root folder
+3. install dependencies by command -->   "npm install"
+4. run the app --> "npm start"

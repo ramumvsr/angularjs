@@ -1,0 +1,31 @@
+<div class="container mainPageContainer" id="main">
+    <div class="row" style="max-height:500px;flex-wrap: wrap;overflow: scroll;" >
+
+        <div class="col-sm-4" ng-repeat="musicData in favoritesList">
+
+            <div class="panel panel-default">
+                <div class="panel-thumbnail"><img src="{{musicData.cover_image}}" class="img-responsive"></div>
+                <div class="panel-body">
+                    <p class="lead">{{musicData.song}}
+                        <span style="float: right">
+                            <img ng-if="musicData.isFavoriteSong" style="width:32px;" src="src/img/filled-heart.png">
+                        </span>
+                    </p>
+                    <p>{{musicData.artists}}</p>
+
+                    <p>
+
+                    </p>
+                </div>
+            </div>
+
+
+        </div><!--/col-->
+
+        <br>
+
+        <div class="clearfix"></div>
+
+
+    </div><!--/main row-->
+</div><!--/main-->
